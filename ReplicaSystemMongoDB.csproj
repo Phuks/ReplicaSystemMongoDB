@@ -179,6 +179,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MongoDBContext.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApprenticeshipController.cs" />
     <Compile Include="Controllers\BursaryController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternshipController.cs" />
     <Compile Include="Controllers\LearnershipController.cs" />
+    <Compile Include="Controllers\UploadsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +197,7 @@
     <Compile Include="Models\Internship.cs" />
     <Compile Include="Models\Learnership.cs" />
     <Compile Include="Models\MongoHelper.cs" />
+    <Compile Include="Models\UploadsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +249,10 @@
     <Content Include="Views\GradProgramme\Index.cshtml" />
     <Content Include="Views\Internship\Index.cshtml" />
     <Content Include="Views\Learnership\Index.cshtml" />
+    <Content Include="Views\Uploads\Create.cshtml" />
+    <Content Include="Views\Uploads\Delete.cshtml" />
+    <Content Include="Views\Uploads\Edit.cshtml" />
+    <Content Include="Views\Uploads\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
