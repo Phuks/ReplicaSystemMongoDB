@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ReplicaSystemMongoDB.Models;
 
 namespace ReplicaSystemMongoDB.Controllers
 {
@@ -114,5 +115,28 @@ namespace ReplicaSystemMongoDB.Controllers
                 return View();
             }
         }
+
+        public ActionResult Dashboard()
+        {
+            Models.MongoHelper.ConnectToMongoService();
+            Models.MongoHelper.apprenticeships_collection =
+                Models.MongoHelper.database.GetCollection<Models.Apprenticeship>("apprenticeship_tb");
+            var filter = Builders<Models.Apprenticeship>.Filter.Ne("Id", "");
+            var result = Models.MongoHelper.apprenticeships_collection.Find(filter).ToList();
+
+            List<int> repartitions = new List<int>();
+            var dates = result.Select(x => x.OpenDate).Distinct();
+
+            foreach (var item in dates)
+            {
+                repartitions.Add(result.Count(x => x.OpenDate == item));
+            }
+
+            var rep = repartitions;
+            ViewBag.DATES = dates;
+            ViewBag.REP = repartitions.ToList();
+            return View();
+        }
     }
+
 }
