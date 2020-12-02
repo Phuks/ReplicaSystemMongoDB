@@ -7,8 +7,9 @@ using System.Web.Mvc;
 
 namespace ReplicaSystemMongoDB.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
+        // GET: Admin
         public ActionResult Index()
         {
             Models.MongoHelper.ConnectToMongoService();
@@ -54,18 +55,76 @@ namespace ReplicaSystemMongoDB.Controllers
             return View();
         }
 
-        public ActionResult About()
+        // GET: Admin/Details/5
+        public ActionResult Details(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        // GET: Admin/Create
+        public ActionResult Create()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+        }
+
+        // POST: Admin/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Admin/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Admin/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Admin/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Admin/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

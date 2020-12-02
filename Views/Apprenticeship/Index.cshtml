@@ -4,59 +4,89 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Apprenticeships</h2>
+<!DOCTYPE html>
 
-<p>
-    @*@Html.ActionLink("Create New", "Create")*@
-</p>
-<table id="tblData" class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpenDate)
-        </th>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>datatables</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min,js"></script>
 
-        <th></th>
-    </tr>
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <img src=@Html.DisplayFor(modelItem => item.ImageLink)/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpenDate)
-            </td>
-
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>*@
-        </tr>
-    }
-
-</table>
-@section Scripts{
     <script>
         $(document).ready(function () {
-            $('#tblData').DataTable();
+            $('#appData').DataTable();
         });
     </script>
+
+</head>
+<body>
+    <div>
+        <h2>Apprenticeships</h2>
+
+        <p>
+            @*@Html.ActionLink("Create New", "Create")*@
+        </p>
+        <table id="appData" class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageLink)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OpenDate)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src=@Html.DisplayFor(modelItem => item.ImageLink) />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OpenDate)
+                    </td>
+
+                    @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>*@
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+@*<link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+
+@section Scripts{
+    @*<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>*@
+
+    @*<script>
+        $(document).ready(function () {
+            $('#appData').DataTable();
+        });
+    </script>*@
 }
 
